@@ -52,10 +52,7 @@
                 <div class="class-nav">
                     <div id="scroll-nav" style="height: 100%;">
                         <ul class="nav" id="scroll-nav-content" style="height: 540px; transform: translate3d(0px, 0px, 0px);">
-                            <li class="category-name js-category-name" data-cid="-1" 
-                            v-for="(topList,index) in topLists" :key="topList.id" 
-                            :data-id="topList.id" @click="onSubList(index,topList.id)" 
-                            :class="{active:index===selectedIndex}">{{topList.name}}</li>
+                            <li class="category-name js-category-name" data-cid="-1" v-for="(topList,index) in topLists" :key="topList.id" :data-id="topList.id" @click="onSubList(index,topList.id)" :class="{active:index===selectedIndex}">{{topList.name}}</li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +74,7 @@
                                                 </div>
                                                 <div class="detail">
                                                     <div class="title">{{item.name}}</div>
-                                                    <div class="price">￥{{item.price}}</div>
+                                                    <div class="price">￥{{item.price|toFixed}}</div>
                                                     <div class="recommend">
                                                         <span>推荐值:</span>
                                                         <span>{{item.recommend}}</span>
@@ -145,7 +142,7 @@
                 </div>
             </div>
         </div>
-        <y-footer></y-footer>
+        <y-footer selected-tab="category"></y-footer>
     </div>
 </body>
 

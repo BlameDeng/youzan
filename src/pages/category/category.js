@@ -21,6 +21,9 @@ new Vue({
         hotKeywords: null,
         hotShops: null
     },
+    filters: {
+        toFixed(value) { return value.toFixed(2) }
+    },
     created() {
         request({ url: url.topList }).then(res => {
             this.topLists = res.lists;
