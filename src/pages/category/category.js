@@ -14,19 +14,35 @@ new Vue({
     components: { 'y-footer': Footer },
     data: {
         topLists: null,
-        selectedIndex: 0
+        selectedIndex: 0,
+        brandLists: null,
+        categoryLists: null,
+        hotGoods: null,
+        hotKeywords: null,
+        hotShops: null
     },
     created() {
         request({ url: url.topList }).then(res => {
             this.topLists = res.lists;
-        }).catch(err => {})
+        }).catch(err => {});
+        this.onSubList(0);
     },
     methods: {
-        onSubList(id, index) {
-            request({ url: url.subList, method: "POST", data: { id } }).then(res => {
-                console.log(res)
-                this.selectedIndex = index;
-            }).catch(err => {})
+        onSubList(index, id) {
+            if (index === 0) {
+                request({ url: url.rank, method: "POST" }).then(res => {
+                    this.selectedIndex = index;
+                    this.hotGoods = res.data.hotGoods;
+                    this.hotKeywords = res.data.hotKeywords;
+                    this.hotShops = res.data.hotShops;
+                }).catch(err => {})
+            } else {
+                request({ url: url.subList, method: "POST", data: { id } }).then(res => {
+                    this.selectedIndex = index;
+                    this.brandLists = res.data.brandList;
+                    this.categoryLists = res.data.categoryList;
+                }).catch(err => {})
+            }
         }
     }
 })

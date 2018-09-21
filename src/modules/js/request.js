@@ -12,9 +12,7 @@ export default function request({ method = "GET", url, data = {} }) {
             option.params = data;
         } else { option.data = data; }
         axios(option).then(res => {
-            if (res.status === 200) {
-                resolve(res.data);
-            } else { reject(res.data); }
+            resolve(res.data);
         }).catch(err => {
             reject(err);
         })
