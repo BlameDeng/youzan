@@ -9,6 +9,8 @@ Vue.config.productionTip = false
 
 import Footer from 'components/Footer.vue'
 
+import mixin from 'js/mixin.js'
+
 new Vue({
     el: '#app',
     components: { 'y-footer': Footer },
@@ -21,9 +23,7 @@ new Vue({
         hotKeywords: null,
         hotShops: null
     },
-    filters: {
-        toFixed(value) { return value.toFixed(2) }
-    },
+    mixins:[mixin],
     created() {
         request({ url: url.topList }).then(res => {
             this.topLists = res.lists;
@@ -46,6 +46,10 @@ new Vue({
                     this.categoryLists = res.data.categoryList;
                 }).catch(err => {})
             }
+        },
+        onToSearch(list) {
+            let name = encodeURIComponent(encodeURIComponent(list.name));
+            location.href = `search.html?keyword=${name}&id=${list.id}`;
         }
     }
 })
