@@ -22,8 +22,6 @@
                 required: true
             }
         },
-        created() {
-        },
         mounted() {
             var mySwiper = new Swiper('.swiper-container', {
                 // Optional parameters

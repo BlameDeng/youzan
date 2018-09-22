@@ -4,6 +4,9 @@ const url = {
     topList: '/category/topList',
     subList: '/category/subList',
     rank: '/category/rank',
-    search: '/search/list'
+    search: '/search/list',
+    details: '/goods/details',
+    deal: '/goods/deal',
+    addCart: '/cart/add'
 }
 export default url

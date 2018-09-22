@@ -86,6 +86,7 @@ video {
   font-size: 100%;
   vertical-align: baseline
 }
+[v-cloak]{display: none !important;}
 
 html {
   line-height: 1
