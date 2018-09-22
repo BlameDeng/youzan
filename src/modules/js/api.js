@@ -7,6 +7,7 @@ const url = {
     search: '/search/list',
     details: '/goods/details',
     deal: '/goods/deal',
-    addCart: '/cart/add'
+    addCart: '/cart/add',
+    cartList: '/cart/list'
 }
 export default url
