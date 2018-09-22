@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+## 基于 Vue 2.x 重构有赞移动端商城
+
 ## Build Setup
 
 ``` bash
