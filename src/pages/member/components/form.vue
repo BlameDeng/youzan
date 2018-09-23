@@ -31,7 +31,7 @@
                     </div>
                     <div class="block-item">
                         <label>详细地址</label>
-                        <input type="text" placeholder="街道门牌信息" name="address_detail" value="南方软件园" maxlength="100">
+                        <input type="text" placeholder="街道门牌信息" name="address_detail" v-model.trim="address" maxlength="100">
                     </div>
                 </div>
             </div>
@@ -68,11 +68,16 @@
         },
         created() {
             this.type = this.$route.query.type;
-            this.instance = this.$route.query.instance;
-            if (this.instance) {
-                this.name = this.instance.name;
-                this.tel = this.instance.tel;
-                console.log(this.addressData.list[5])
+            let instance = this.$route.query.instance;
+            if (instance) {
+                console.log(instance)
+                this.instance = instance;
+                this.name = instance.name;
+                this.tel = instance.tel;
+                this.provinceValue = +instance.provinceValue;
+                this.cityValue = +instance.cityValue;
+                this.districtValue = +instance.districtValue;
+                this.address = instance.address;
             }
         },
         watch: {
@@ -85,6 +90,9 @@
                 this.cityList = list[index].children;
                 this.cityValue = -1;
                 this.districtValue = -1;
+                if (this.type === "edit") {
+                    this.cityValue = +this.instance.cityValue;
+                }
             },
             cityValue(val) {
                 if (val === -1) { return }
@@ -95,6 +103,9 @@
                     });
                     this.districtList = list[index].children;
                     this.districtValue = -1;
+                    if (this.type === "edit") {
+                        this.districtValue = +this.instance.districtValue;
+                    }
                 }
             }
         }
