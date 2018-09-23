@@ -8,6 +8,7 @@ const url = {
     details: '/goods/details',
     deal: '/goods/deal',
     addCart: '/cart/add',
-    cartList: '/cart/list'
+    cartList: '/cart/list',
+    getAddress:'/address/list'
 }
 export default url

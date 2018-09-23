@@ -135,7 +135,7 @@
                                     <p class="c-gray-dark">不含运费</p>
                                 </div>
                                 <button href="javascript:;" class="js-go-pay btn btn-orange-dark font-size-14" :disabled="!(selectedLists&&selectedLists.length)">
-                                    结算 ({{selectedLists.length}})
+                                    结算 ({{totalNum}})
                                 </button>
                                 <!-- 编辑状态 -->
                                 <button href="javascript:;" :disabled="!removeLists.length" class="j-delete-goods btn font-size-14 btn-red" v-show="editingShop">删除
