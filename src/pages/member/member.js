@@ -19,11 +19,13 @@ const router = new Router({
                 },
                 {
                     path: 'all',
+                    name: 'all',
                     component: () =>
                         import('./components/all.vue')
                 },
                 {
                     path: 'form',
+                    name: 'form',
                     component: () =>
                         import('./components/form.vue')
                 }
